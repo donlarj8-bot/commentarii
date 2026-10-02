@@ -1,5 +1,5 @@
 {
-  "nextId": 31,
+  "nextId": 32,
   "quotes": [
     {
       "n": 1,
@@ -174,6 +174,12 @@
       "q": "Farewell, beloved wife; farewell, my Josephine. May fate\nconcentrate in my breast all the griefs and troubles, but may it give Josephine happy and prosperous days. Who deserves them more? When it shall be quite settled that she can love me no more, I will hide my profound grief, and will content myself with the power of being useful and serviceable to her.",
       "s": "Letters to Josephine, Napoleon Bonaparte",
       "t": "2026-10-02T10:50:55.201Z"
+    },
+    {
+      "n": 31,
+      "q": "Not a word from you—what on earth have I done? To think only of you, to love only Josephine, to live only for my wife, to enjoy happiness only with my dear one—does this deserve such harsh treatment from her? My dear, I beg you, think often of me, and write me every day. \n\nYou are ill, or else you do not love me! Do you think, then, that I\nhave a heart of stone? and do my sufferings concern you so little?",
+      "s": "Letters to Josephine, Napoleon Bonaparte",
+      "t": "2026-10-02T10:53:28.034Z"
     }
   ]
 }
