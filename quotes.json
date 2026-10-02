@@ -1,5 +1,5 @@
 {
-  "nextId": 10,
+  "nextId": 11,
   "quotes": [
     {
       "n": 1,
@@ -54,6 +54,12 @@
       "q": "I want to make them braver, more persevering, simpler, more full of gaiety.",
       "s": "Nietzsche, The Gay Science",
       "t": "2026-10-02T09:07:08.457Z"
+    },
+    {
+      "n": 10,
+      "q": "Nothing makes a prince so much esteemed as great enterprises and setting a fine example.",
+      "s": "The Prince, Niccolo Machiavelli",
+      "t": "2026-10-02T09:08:29.660Z"
     }
   ]
 }
