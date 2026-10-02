@@ -1,5 +1,5 @@
 {
-  "nextId": 22,
+  "nextId": 23,
   "quotes": [
     {
       "n": 1,
@@ -120,6 +120,12 @@
       "q": "A thousand kisses as burning as you are cold. Boundless love, and fidelity up to every proof.",
       "s": "Letters to Josephine, Napoleon Bonaparte",
       "t": "2026-10-02T10:22:05.445Z"
+    },
+    {
+      "n": 22,
+      "q": "Adieu, my kind Josephine: love me, keep well, and often, often think of me.",
+      "s": "Letters to Josephine, Napoleon Bonaparte",
+      "t": "2026-10-02T10:26:49.917Z"
     }
   ]
 }
