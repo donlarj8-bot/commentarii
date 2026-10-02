@@ -12,7 +12,7 @@
   var state = { nextId: 1, quotes: [] };
   var ui = {
     search: '', source: '', newestFirst: true,
-    owner: false, token: '', busy: false, confirmId: null, editT: null,
+    owner: false, token: '', busy: false, confirmId: null, editT: null, confirmRenum: false,
     loading: true, loadError: false, showSignin: false
   };
 
@@ -341,10 +341,25 @@
   }
 
   /* ---------- admin ---------- */
-  var qEl, sEl, previewEl, errEl, noticeEl, addBtn, datalistEl;
+  var qEl, sEl, previewEl, errEl, noticeEl, addBtn, datalistEl, gapEl, gapMsg, gapBtn;
+
+  function hasGap() {
+    return state.quotes.map(function (e) { return e.n; })
+      .sort(function (a, b) { return a - b; })
+      .some(function (n, i) { return n !== i + 1; });
+  }
 
   function refreshAdminMeta() {
     if (!ui.owner || !previewEl) return;
+    if (gapEl) {
+      var gap = hasGap();
+      if (!gap) ui.confirmRenum = false;
+      gapEl.hidden = !gap;
+      gapMsg.textContent = 'Some numbers are skipped.';
+      gapBtn.textContent = ui.confirmRenum
+        ? 'Confirm: renumber 1 to ' + state.quotes.length
+        : 'Renumber 1 to ' + state.quotes.length;
+    }
     previewEl.textContent = 'Saved as No. ' + state.nextId + ', dated ' + fmtDate(new Date()) + '.';
     datalistEl.textContent = '';
     uniqueSources().forEach(function (s) { datalistEl.appendChild(h('option', { value: s })); });
@@ -362,6 +377,9 @@
     sEl = h('input', { id: 'f-source', type: 'text', list: 'f-sources', maxlength: '200', autocomplete: 'off', placeholder: 'Book, person, podcast or talk' });
     datalistEl = h('datalist', { id: 'f-sources' });
     previewEl = h('p', { class: 'preview' });
+    gapMsg = h('span');
+    gapBtn = h('button', { type: 'button', class: 'link-btn', onclick: renumber });
+    gapEl = h('p', { class: 'preview', hidden: true }, [gapMsg, ' ', gapBtn]);
     errEl = h('p', { class: 'error', role: 'alert' });
     noticeEl = h('p', { class: 'notice', role: 'status' });
     addBtn = h('button', { type: 'button', class: 'btn', text: 'Add entry', onclick: addEntry });
@@ -374,6 +392,7 @@
     adminEl.appendChild(h('div', { class: 'field' }, [h('label', { for: 'f-quote', text: 'Quote, note or line' }), qEl]));
     adminEl.appendChild(h('div', { class: 'field' }, [h('label', { for: 'f-source', text: 'Source' }), sEl, datalistEl]));
     adminEl.appendChild(previewEl);
+    adminEl.appendChild(gapEl);
     adminEl.appendChild(errEl);
     adminEl.appendChild(noticeEl);
     adminEl.appendChild(addBtn);
@@ -404,6 +423,28 @@
       errEl.textContent = explain(err);
       if (err && err.status === 401) signOut();
     }).then(function () { setBusy(false); });
+  }
+
+  // Close any gaps so the numbers run 1, 2, 3... in the order entries were added.
+  function renumber() {
+    if (!ui.owner || ui.busy) return;
+    if (!ui.confirmRenum) { ui.confirmRenum = true; refreshAdminMeta(); return; }
+    ui.confirmRenum = false;
+    errEl.textContent = ''; noticeEl.textContent = '';
+    setBusy(true, 'Saving…');
+    mutate(function (cur) {
+      var list = cur.quotes.slice().sort(function (a, b) {
+        return (a.n - b.n) || ((a.t || '') < (b.t || '') ? -1 : 1);
+      });
+      list.forEach(function (e, i) { e.n = i + 1; });
+      return { data: { nextId: list.length + 1, quotes: list } };
+    }, 'Renumber entries').then(function (out) {
+      state = normalize(out.data);
+      noticeEl.textContent = 'Done. The entries now run 1 to ' + state.quotes.length + '.';
+      renderAll();
+    }).catch(function (err) {
+      errEl.textContent = explain(err);
+    }).then(function () { setBusy(false); refreshAdminMeta(); });
   }
 
   function removeEntry(t) {
