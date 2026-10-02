@@ -2,7 +2,7 @@
   'use strict';
 
   /* ======= EDIT THESE TWO LINES ======= */
-     var REPO = 'donlarj8-bot/commentarii';
+  var REPO = 'donlarj8-bot/commentarii';
   var BRANCH = 'main';
   /* ==================================== */
 
@@ -12,7 +12,7 @@
   var state = { nextId: 1, quotes: [] };
   var ui = {
     search: '', source: '', newestFirst: true,
-    owner: false, token: '', busy: false, confirmId: null,
+    owner: false, token: '', busy: false, confirmId: null, editT: null,
     loading: true, loadError: false, showSignin: false
   };
 
@@ -227,7 +227,57 @@
     return list;
   }
 
+  function numCol(e) {
+    return h('div', { class: 'num' }, [
+      h('span', { class: 'arabic' + (e.n > 999 ? ' big' : ''), text: String(e.n) }),
+      h('span', { class: 'roman', text: toRoman(e.n), 'aria-hidden': 'true' })
+    ]);
+  }
+
+  function editorEl(e) {
+    var qIn = h('textarea', { id: 'e-quote', rows: '4', maxlength: '4000' });
+    qIn.value = e.q;
+    var sIn = h('input', { id: 'e-source', type: 'text', list: 'f-sources', maxlength: '200', autocomplete: 'off' });
+    sIn.value = e.s || '';
+    var msg = h('p', { class: 'error', role: 'alert' });
+    var save = h('button', { type: 'button', class: 'btn', text: 'Save changes' });
+    var cancel = h('button', { type: 'button', class: 'link-btn', text: 'Cancel', onclick: function () { if (!ui.busy) { ui.editT = null; renderList(); } } });
+
+    save.addEventListener('click', function () {
+      if (ui.busy) return;
+      var q = qIn.value.trim(), s = sIn.value.trim();
+      if (!q) { msg.textContent = 'The quote cannot be empty.'; qIn.focus(); return; }
+      msg.textContent = '';
+      ui.busy = true; save.disabled = true; save.textContent = 'Saving…';
+      mutate(function (cur) {
+        var hit = cur.quotes.filter(function (x) { return x.t === e.t; })[0];
+        if (!hit) throw new Error('missing');
+        hit.q = q; hit.s = s;
+        return { data: normalize(cur) };
+      }, 'Edit entry ' + e.n).then(function (out) {
+        state = normalize(out.data);
+        ui.editT = null;
+        if (noticeEl) noticeEl.textContent = 'Entry ' + e.n + ' updated. It changes for everyone in about a minute.';
+        renderAll();
+      }).catch(function (error) {
+        msg.textContent = (error && error.message === 'missing') ? 'That entry no longer exists. Refresh the page.' : explain(error);
+        save.disabled = false; save.textContent = 'Save changes';
+      }).then(function () { ui.busy = false; });
+    });
+
+    return h('article', { class: 'entry' }, [
+      numCol(e),
+      h('div', { class: 'body' }, [
+        h('div', { class: 'field' }, [h('label', { for: 'e-quote', text: 'Quote, note or line' }), qIn]),
+        h('div', { class: 'field' }, [h('label', { for: 'e-source', text: 'Source' }), sIn]),
+        msg,
+        h('div', { class: 'meta' }, [save, cancel])
+      ])
+    ]);
+  }
+
   function entryEl(e) {
+    if (ui.owner && ui.editT === e.t) return editorEl(e);
     var meta = [];
     if (e.s) {
       meta.push(h('button', {
@@ -238,21 +288,24 @@
     }
     meta.push(h('time', { class: 'when', datetime: e.t, text: fmtDate(e.t) }));
     if (ui.owner) {
-      if (ui.confirmId === e.n) {
-        meta.push(h('button', { type: 'button', class: 'link-btn remove danger', text: 'Confirm remove', onclick: function () { removeEntry(e.n); } }));
+      if (ui.confirmId === e.t) {
+        meta.push(h('button', { type: 'button', class: 'link-btn remove danger', text: 'Confirm remove', onclick: function () { removeEntry(e.t); } }));
         meta.push(h('button', { type: 'button', class: 'link-btn', text: 'Keep', onclick: function () { ui.confirmId = null; renderList(); } }));
       } else {
         meta.push(h('button', {
+          type: 'button', class: 'link-btn', text: 'Edit', 'aria-label': 'Edit entry ' + e.n,
+          style: 'margin-left:auto;color:var(--muted);font-size:0.95rem',
+          onclick: function () { ui.editT = e.t; ui.confirmId = null; renderList(); }
+        }));
+        meta.push(h('button', {
           type: 'button', class: 'link-btn remove', text: 'Remove', 'aria-label': 'Remove entry ' + e.n,
-          onclick: function () { ui.confirmId = e.n; renderList(); }
+          style: 'margin-left:0',
+          onclick: function () { ui.confirmId = e.t; renderList(); }
         }));
       }
     }
     return h('article', { class: 'entry' }, [
-      h('div', { class: 'num' }, [
-        h('span', { class: 'arabic' + (e.n > 999 ? ' big' : ''), text: String(e.n) }),
-        h('span', { class: 'roman', text: toRoman(e.n), 'aria-hidden': 'true' })
-      ]),
+      numCol(e),
       h('div', { class: 'body' }, [
         h('p', { class: 'quote', text: e.q }),
         h('div', { class: 'meta' }, meta)
@@ -341,8 +394,7 @@
     setBusy(true, 'Adding…');
     mutate(function (cur) {
       created = { n: cur.nextId, q: q, s: s, t: new Date().toISOString() };
-      var data = { nextId: cur.nextId + 1, quotes: cur.quotes.concat([created]) };
-      return { data: data };
+      return { data: { nextId: cur.nextId + 1, quotes: cur.quotes.concat([created]) } };
     }, 'Add entry').then(function (out) {
       state = normalize(out.data);
       qEl.value = ''; sEl.value = '';
@@ -354,16 +406,16 @@
     }).then(function () { setBusy(false); });
   }
 
-  function removeEntry(n) {
+  function removeEntry(t) {
     if (!ui.owner || ui.busy) return;
     ui.confirmId = null;
     errEl.textContent = ''; noticeEl.textContent = '';
     setBusy(true, 'Removing…');
     mutate(function (cur) {
-      return { data: { nextId: cur.nextId, quotes: cur.quotes.filter(function (e) { return e.n !== n; }) } };
-    }, 'Remove entry ' + n).then(function (out) {
+      return { data: { nextId: cur.nextId, quotes: cur.quotes.filter(function (e) { return e.t !== t; }) } };
+    }, 'Remove entry').then(function (out) {
       state = normalize(out.data);
-      noticeEl.textContent = 'Entry ' + n + ' removed. Its number will not be reused.';
+      noticeEl.textContent = 'Entry removed.';
       renderAll();
     }).catch(function (err) {
       errEl.textContent = explain(err);
