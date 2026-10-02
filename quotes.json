@@ -1,5 +1,5 @@
 {
-  "nextId": 46,
+  "nextId": 47,
   "quotes": [
     {
       "n": 1,
@@ -270,6 +270,12 @@
       "q": "Never outshine the master; always make superiors appear more brilliant than they are to avoid triggering defensive insecurity.\n\nConceal your intentions until your momentum is unstoppable; unpredictable actors force opponents into reactive blunders.\n\nGuard your reputation with your life; once cracked, perception compounds negatively and invites aggressive challenges.",
       "s": "The 48 Laws of Power — Robert Greene",
       "t": "2026-10-02T15:07:57.190Z"
+    },
+    {
+      "n": 46,
+      "q": "Entrepreneurs should have the ability to accumulate, combine, and mobilize the particular resources required to exploit the opportunity they have created or discovered.",
+      "s": "Entrepreneurship: A Very Short Introduction",
+      "t": "2026-10-02T15:11:54.611Z"
     }
   ]
 }
