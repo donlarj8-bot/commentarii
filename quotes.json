@@ -1,4 +1,11 @@
 {
-  "nextId": 1,
-  "quotes": []
+  "nextId": 2,
+  "quotes": [
+    {
+      "n": 1,
+      "q": "He will win who, prepared himself, waits to take the enemy\nunprepared.",
+      "s": "Sun Tzu, The Art of War",
+      "t": "2026-10-02T08:14:13.351Z"
+    }
+  ]
 }
