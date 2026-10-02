@@ -1,5 +1,5 @@
 {
-  "nextId": 12,
+  "nextId": 13,
   "quotes": [
     {
       "n": 1,
@@ -66,6 +66,12 @@
       "q": "Again, it much assists a prince to set unusual examples in internal affairs, similar to those which are related of Messer Bernabo da Milano, who, when he had the opportunity, by any one in civil life doing some extraordinary thing, either good or bad, would take some method of rewarding or punishing him, which would be much spoken about.",
       "s": "The Prince, Niccolo Machiavelli",
       "t": "2026-10-02T09:09:32.167Z"
+    },
+    {
+      "n": 12,
+      "q": "A prince ought, above all things, always endeavour in every action to gain for himself the reputation of being a great and remarkable man.",
+      "s": "The Prince, Niccolo Machiavelli",
+      "t": "2026-10-02T09:10:18.638Z"
     }
   ]
 }
