@@ -1,11 +1,17 @@
 {
-  "nextId": 2,
+  "nextId": 3,
   "quotes": [
     {
       "n": 1,
       "q": "He will win who, prepared himself, waits to take the enemy\nunprepared.",
       "s": "Sun Tzu, The Art of War",
       "t": "2026-10-02T08:14:13.351Z"
+    },
+    {
+      "n": 2,
+      "q": "If you know the enemy and know yourself, you\nneed not fear the result of a hundred battles. If you know yourself but not the enemy, for every victory gained you will also suffer a defeat.",
+      "s": "Sun Tzu, The Art of War",
+      "t": "2026-10-02T08:17:32.761Z"
     }
   ]
 }
