@@ -1,5 +1,5 @@
 {
-  "nextId": 13,
+  "nextId": 14,
   "quotes": [
     {
       "n": 1,
@@ -66,6 +66,12 @@
       "q": "A prince ought, above all things, always endeavour in every action to gain for himself the reputation of being a great and remarkable man.",
       "s": "The Prince, Niccolo Machiavelli",
       "t": "2026-10-02T09:10:18.638Z"
+    },
+    {
+      "n": 13,
+      "q": "If you know the enemy and know yourself, you need not fear the result of a hundred battles. If you know yourself but not the enemy, for every victory gained you will also suffer a defeat.",
+      "s": "Sun Tzu, The Art of War",
+      "t": "2026-10-02T09:12:31.677Z"
     }
   ]
 }
