@@ -1,5 +1,5 @@
 {
-  "nextId": 11,
+  "nextId": 12,
   "quotes": [
     {
       "n": 1,
@@ -60,6 +60,12 @@
       "q": "Nothing makes a prince so much esteemed as great enterprises and setting a fine example.",
       "s": "The Prince, Niccolo Machiavelli",
       "t": "2026-10-02T09:08:29.660Z"
+    },
+    {
+      "n": 11,
+      "q": "Again, it much assists a prince to set unusual examples in internal affairs, similar to those which are related of Messer Bernabo da Milano, who, when he had the opportunity, by any one in civil life doing some extraordinary thing, either good or bad, would take some method of rewarding or punishing him, which would be much spoken about.",
+      "s": "The Prince, Niccolo Machiavelli",
+      "t": "2026-10-02T09:09:32.167Z"
     }
   ]
 }
