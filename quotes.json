@@ -1,5 +1,5 @@
 {
-  "nextId": 44,
+  "nextId": 45,
   "quotes": [
     {
       "n": 1,
@@ -258,6 +258,12 @@
       "q": "The structural inevitability of conflict: when a rising power threatens an established hegemon, war is driven by fear, honor, and interest.\n\n\"The strong do what they can and the weak suffer what they must\"—moral arguments fail when power imbalances are extreme.\n\nInternal factionalism (stasis) and emotional populism erode strategic judgment faster than battlefield defeats.",
       "s": "History of the Peloponnesian War — Thucydides",
       "t": "2026-10-02T15:05:46.959Z"
+    },
+    {
+      "n": 44,
+      "q": "War is the continuation of politics by other means; military execution without clear political objectives is self-destruction.\n\n\"Friction\" is the only concept that distinguishes real war from war on paper; endless small unforeseen obstacles accumulate into operational paralysis.\n\nCenter of gravity analysis: identify the single source of an opponent’s power and focus all decisive mass against it.",
+      "s": "On War — Carl von Clausewitz",
+      "t": "2026-10-02T15:07:27.513Z"
     }
   ]
 }
