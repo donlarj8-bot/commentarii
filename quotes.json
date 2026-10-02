@@ -1,5 +1,5 @@
 {
-  "nextId": 3,
+  "nextId": 4,
   "quotes": [
     {
       "n": 1,
@@ -12,6 +12,12 @@
       "q": "If you know the enemy and know yourself, you\nneed not fear the result of a hundred battles. If you know yourself but not the enemy, for every victory gained you will also suffer a defeat.",
       "s": "Sun Tzu, The Art of War",
       "t": "2026-10-02T08:17:32.761Z"
+    },
+    {
+      "n": 3,
+      "q": "Welcome to the infantry. This is our day, our job. It sucks, and we hate it, but we endure for two reasons. First, there is nobility and purpose in our lives. We are America’s warrior class. We protect; we avenge. Second, every moment in the infantry is a test. If we measure up to the worst days, such as this one, it proves we stand a breed apart from all other men.",
+      "s": "House to House, David Bellavia",
+      "t": "2026-10-02T08:21:03.090Z"
     }
   ]
 }
