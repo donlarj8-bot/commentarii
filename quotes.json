@@ -1,5 +1,5 @@
 {
-  "nextId": 16,
+  "nextId": 17,
   "quotes": [
     {
       "n": 1,
@@ -84,6 +84,12 @@
       "q": "It is an hour after midnight. They have just brought me a letter. It is a sad one, my mind is distressed—it is the death of Chauvet. He was commissionaire ordinateur en chef of the army; you have sometimes seen him at the house of Barras. My love, I feel the need of consolation. It is by writing to thee, to thee alone, the thought of whom can so influence my moral being, to whom I must pour out my troubles.",
       "s": "Letters to Josephine, Napoleon Bonaparte",
       "t": "2026-10-02T09:38:23.721Z"
+    },
+    {
+      "n": 16,
+      "q": "Soul of my life, write me by every courier, else I shall not know how to exist.",
+      "s": "Letters to Josephine, Napoleon Bonaparte",
+      "t": "2026-10-02T09:57:40.814Z"
     }
   ]
 }
