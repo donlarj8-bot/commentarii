@@ -1,5 +1,5 @@
 {
-  "nextId": 8,
+  "nextId": 9,
   "quotes": [
     {
       "n": 1,
@@ -42,6 +42,12 @@
       "q": "Who will attain something great if he does not feel in himself the power to inflict great pain? Being able to suffer is the least; weak women and even slaves often achieve mastery at that. But not to perish of inner distress and uncertainty when one inflicts great suffering and hears the cry of this suffering – that is great; that belongs to greatness.",
       "s": "Nietzsche, The Gay Science",
       "t": "2026-10-02T08:55:22.120Z"
+    },
+    {
+      "n": 8,
+      "q": "They want to help and have no thought that there is a personal necessity of misfortune; that terrors, deprivations, impoverishments, midnights, adventures, risks, and blunders are as necessary for me and you as their opposites; indeed, to express myself mystically, that the path to one’s own heaven always leads through the voluptuousness of one’s own hell.",
+      "s": "Nietzsche, The Gay Science",
+      "t": "2026-10-02T09:05:11.640Z"
     }
   ]
 }
