@@ -142,7 +142,7 @@
       crown,
       h('h1', { text: 'COMMENTARII' }),
       h('p', { class: 'sub', text: 'Lines worth keeping from the books I read and the people I listen to.' }),
-      h('p', { class: 'epi' }, ['Veni, vidi, legi.', h('span', { text: 'I came, I saw, I read.' })])
+      h('p', { class: 'epi' }, ['I'm Deepak Lead', h('span', { text: 'I read. I Lead, by God.' })])
     ]),
     h('div', { class: 'meander', 'aria-hidden': 'true' })
   ]);
