@@ -1,5 +1,5 @@
 {
-  "nextId": 24,
+  "nextId": 25,
   "quotes": [
     {
       "n": 1,
@@ -132,6 +132,12 @@
       "q": "How can you forget the man who loves you with so much fervour? No letters from you for three days; and yet I have written to you several times. To be parted is dreadful, the nights are long, stupid, and wearisome; the day's work is monotonous. This evening, alone with my thoughts, work and correspondence, with men and their stupid schemes, I have not even one letter from you which I might press to my heart.",
       "s": "Letters to Josephine, Napoleon Bonaparte",
       "t": "2026-10-02T10:28:57.406Z"
+    },
+    {
+      "n": 24,
+      "q": "The moment this matter shall be finished I will be in your arms. I embrace you a million times.",
+      "s": "Letters to Josephine, Napoleon Bonaparte",
+      "t": "2026-10-02T10:31:05.081Z"
     }
   ]
 }
