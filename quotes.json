@@ -1,5 +1,5 @@
 {
-  "nextId": 6,
+  "nextId": 7,
   "quotes": [
     {
       "n": 1,
@@ -30,6 +30,12 @@
       "q": "I have named my pain and call it ‘dog’ – it’s just as faithful, just as obtrusive and shameless, just as entertaining, just as clever as every other dog – and I can scold it and take my bad moods out on it the way others do with their dogs, servants, and wives.",
       "s": "Nietzsche, The Gay Science",
       "t": "2026-10-02T08:28:37.547Z"
+    },
+    {
+      "n": 6,
+      "q": "There is as much wisdom in pain as in pleasure: like pleasure, pain is one of the prime species-preserving forces. If it weren’t, it would have perished long ago: that it hurts is no argument against it – it is its essence.",
+      "s": "Nietzsche, The Gay Science",
+      "t": "2026-10-02T08:48:32.292Z"
     }
   ]
 }
