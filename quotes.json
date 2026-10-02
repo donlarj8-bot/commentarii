@@ -1,5 +1,5 @@
 {
-  "nextId": 9,
+  "nextId": 10,
   "quotes": [
     {
       "n": 1,
@@ -48,6 +48,12 @@
       "q": "They want to help and have no thought that there is a personal necessity of misfortune; that terrors, deprivations, impoverishments, midnights, adventures, risks, and blunders are as necessary for me and you as their opposites; indeed, to express myself mystically, that the path to one’s own heaven always leads through the voluptuousness of one’s own hell.",
       "s": "Nietzsche, The Gay Science",
       "t": "2026-10-02T09:05:11.640Z"
+    },
+    {
+      "n": 9,
+      "q": "I want to make them braver, more persevering, simpler, more full of gaiety.",
+      "s": "Nietzsche, The Gay Science",
+      "t": "2026-10-02T09:07:08.457Z"
     }
   ]
 }
