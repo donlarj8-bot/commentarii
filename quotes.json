@@ -1,5 +1,5 @@
 {
-  "nextId": 27,
+  "nextId": 28,
   "quotes": [
     {
       "n": 1,
@@ -150,6 +150,12 @@
       "q": "The day before yesterday I was out the whole day. Yesterday I kept my bed. Fever and a racking headache both prevented me writing to my beloved; but I got your letters. I have pressed them to my heart and lips, and the grief of a hundred miles of separation has disappeared.",
       "s": "Letters to Josephine, Napoleon Bonaparte",
       "t": "2026-10-02T10:37:36.681Z"
+    },
+    {
+      "n": 27,
+      "q": "We have made five thousand prisoners, and killed at least six\nthousand of the enemy. Good-bye, my adored Josephine. Think of me often. If you cease to love your Achilles, if for him your heart grows cold, you will be very cruel, very unjust. But I am sure you will always remain my faithful mistress, as I shall ever remain your fond lover.",
+      "s": "Letters to Josephine, Napoleon Bonaparte",
+      "t": "2026-10-02T10:42:08.558Z"
     }
   ]
 }
