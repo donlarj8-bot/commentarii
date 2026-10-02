@@ -1,5 +1,5 @@
 {
-  "nextId": 41,
+  "nextId": 42,
   "quotes": [
     {
       "n": 1,
@@ -240,6 +240,12 @@
       "q": "First they ignore you.\nLouis Monier, the cofounder of AltaVista, recalls the attitude at the time: “This is just another Stanford thing.” Monier felt the same way. “The feeling when I first met Larry and Sergey was that these kids are trying, but the market is saturated. I don’t think anybody took the Google guys very seriously. Nobody noticed that Google’s traffic was going up. Nobody paid any attention until they started to get some real money, and early adopters started moving to Google.”",
       "s": "The Google Guys, Richard L Brandt",
       "t": "2026-10-02T13:52:27.491Z"
+    },
+    {
+      "n": 41,
+      "q": "But when they started the company, their disciplined frugality meant avoiding expensive ad campaigns. “We’ve resisted the temptation to have big advertising campaigns,” Sergey said in 2000. “I’m not sure it’s the right thing to do. I am concerned about long-term profitability.” So they turned to the Internet itself to spread word of their technology. The key was simply to get their product in the hands of early adopters, influential people who would recommend it to others and make it seem like the thing that cool people wanted to use.",
+      "s": "The Google Guys, Richard L Brandt",
+      "t": "2026-10-02T13:58:13.098Z"
     }
   ]
 }
