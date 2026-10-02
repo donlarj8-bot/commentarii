@@ -1,5 +1,5 @@
 {
-  "nextId": 5,
+  "nextId": 6,
   "quotes": [
     {
       "n": 1,
@@ -24,6 +24,12 @@
       "q": "Something you formerly loved as a truth or a probability now strikes you as an error; you cast it off and believe your reason has made a victory. But maybe that error was as necessary for you then, when you were still another person – you are always another person – as are all your present ‘truths’, like a skin that concealed and covered many things you weren’t allowed to see yet. It is your new life, not your reason, that has killed that opinion for you: you don’t need it any more, and now it collapses and unreason crawls out of it into the light like a worm. When we criticize, we are not doing something arbitrary and impersonal; it is, at least very often, proof that there are living, active forces within us shedding skin.",
       "s": "Nietzsche, The Gay Science",
       "t": "2026-10-02T08:24:50.014Z"
+    },
+    {
+      "n": 5,
+      "q": "I have named my pain and call it ‘dog’ – it’s just as faithful, just as obtrusive and shameless, just as entertaining, just as clever as every other dog – and I can scold it and take my bad moods out on it the way others do with their dogs, servants, and wives.",
+      "s": "Nietzsche, The Gay Science",
+      "t": "2026-10-02T08:28:37.547Z"
     }
   ]
 }
