@@ -1,5 +1,5 @@
 {
-  "nextId": 45,
+  "nextId": 46,
   "quotes": [
     {
       "n": 1,
@@ -264,6 +264,12 @@
       "q": "War is the continuation of politics by other means; military execution without clear political objectives is self-destruction.\n\n\"Friction\" is the only concept that distinguishes real war from war on paper; endless small unforeseen obstacles accumulate into operational paralysis.\n\nCenter of gravity analysis: identify the single source of an opponent’s power and focus all decisive mass against it.",
       "s": "On War — Carl von Clausewitz",
       "t": "2026-10-02T15:07:27.513Z"
+    },
+    {
+      "n": 45,
+      "q": "Never outshine the master; always make superiors appear more brilliant than they are to avoid triggering defensive insecurity.\n\nConceal your intentions until your momentum is unstoppable; unpredictable actors force opponents into reactive blunders.\n\nGuard your reputation with your life; once cracked, perception compounds negatively and invites aggressive challenges.",
+      "s": "The 48 Laws of Power — Robert Greene",
+      "t": "2026-10-02T15:07:57.190Z"
     }
   ]
 }
