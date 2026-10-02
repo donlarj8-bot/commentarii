@@ -1,5 +1,5 @@
 {
-  "nextId": 25,
+  "nextId": 26,
   "quotes": [
     {
       "n": 1,
@@ -138,6 +138,12 @@
       "q": "The moment this matter shall be finished I will be in your arms. I embrace you a million times.",
       "s": "Letters to Josephine, Napoleon Bonaparte",
       "t": "2026-10-02T10:31:05.081Z"
+    },
+    {
+      "n": 25,
+      "q": "My Dear,—I write very often and you seldom. You are naughty, and undutiful; very undutiful, as well as thoughtless. It is disloyal to deceive a poor husband, an affectionate lover. Ought he to lose his rights because he is far away, up to the neck in business, worries and anxiety. Without his Josephine, without the assurance of her love, what in the wide world remains for him. What will he do? \n\nAdieu, charming Josephine; one of these nights the door will be burst open with a bang, as if by a jealous husband, and in a moment I shall be in your arms. A thousand affectionate kisses.",
+      "s": "Letters to Josephine, Napoleon Bonaparte",
+      "t": "2026-10-02T10:32:19.750Z"
     }
   ]
 }
