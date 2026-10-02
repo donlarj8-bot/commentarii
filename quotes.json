@@ -1,5 +1,5 @@
 {
-  "nextId": 35,
+  "nextId": 36,
   "quotes": [
     {
       "n": 1,
@@ -204,6 +204,12 @@
       "q": "Alexander the Great, Hannibal, and Julius Caesar.\nYet each would probably want to be remembered as a battle hero. Never mind the long hours of silent contemplation, the continual hashing out of plans in conferences, the negotiations for war-winning alliances, the tedious details of stocking granaries or removing wagons stuck in the mud.\n\nThe thick of bloody battle—primitive, elemental—is where they felt most at home.",
       "s": "Masters of Command - Alexander, Hannibal, Caesar, and the Genius of Leadership by Barry Strauss",
       "t": "2026-10-02T13:20:38.220Z"
+    },
+    {
+      "n": 35,
+      "q": "Len Shackle used the term ‘enterpriser’ rather than entrepreneur. Enterprisers exhibit creativity and spontaneity to address uncertainty. The enterpriser deals with uncertainty, makes skilled judgements, assembles and allocates scarce resources, and provides novel products.\n\nEntrepreneurial knowledge, thought, feeling, imagination, and creativity are fused into action to address the absence of complete knowledge resulting from uncertainty.",
+      "s": "Entrepreneurship: A Very Short Introduction",
+      "t": "2026-10-02T13:23:57.159Z"
     }
   ]
 }
