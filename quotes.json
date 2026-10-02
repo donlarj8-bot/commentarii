@@ -1,5 +1,5 @@
 {
-  "nextId": 17,
+  "nextId": 18,
   "quotes": [
     {
       "n": 1,
@@ -90,6 +90,12 @@
       "q": "Soul of my life, write me by every courier, else I shall not know how to exist.",
       "s": "Letters to Josephine, Napoleon Bonaparte",
       "t": "2026-10-02T09:57:40.814Z"
+    },
+    {
+      "n": 17,
+      "q": "My life is a perpetual nightmare. A presentiment of ill oppresses me. I see you no longer. I have lost more than life, more than happiness, more than my rest. I am almost without hope. I hasten to send a courier to you. He will stay only four hours in Paris, and then bring me your reply. Write me ten pages. That alone can console me a little. You are ill, you love me, I have made you unhappy, you are in delicate health, and I do not see you!—that thought overwhelms me.",
+      "s": "Letters to Josephine, Napoleon Bonaparte",
+      "t": "2026-10-02T10:05:07.790Z"
     }
   ]
 }
