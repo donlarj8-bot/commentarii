@@ -1,5 +1,5 @@
 {
-  "nextId": 19,
+  "nextId": 20,
   "quotes": [
     {
       "n": 1,
@@ -102,6 +102,12 @@
       "q": "I am nothing without you.",
       "s": "Letters to Josephine, Napoleon Bonaparte",
       "t": "2026-10-02T10:12:08.966Z"
+    },
+    {
+      "n": 19,
+      "q": "Without appetite, without sleep, without care for my friends, for glory, for fatherland, you, you alone—the rest of the world exists no more for me than if it were annihilated. I prize honour since you prize it, I prize victory since it pleases you; without that I should leave everything in order to fling myself at your feet.",
+      "s": "Letters to Josephine, Napoleon Bonaparte",
+      "t": "2026-10-02T10:12:47.877Z"
     }
   ]
 }
