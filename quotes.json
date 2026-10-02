@@ -1,5 +1,5 @@
 {
-  "nextId": 30,
+  "nextId": 31,
   "quotes": [
     {
       "n": 1,
@@ -168,6 +168,12 @@
       "q": "Be happy, do not reproach me, do not concern yourself in the\nhappiness of a man who lives only in your life, rejoices only in your pleasure and happiness.\nWhen I sacrifice to you all my desires, all my thoughts, every moment of my life, I obey the sway which your charms, your disposition, and your whole personality have so effectively exerted over my unfortunate heart. \nI was wrong, since nature has not given me attractions with which to captivate you.",
       "s": "Letters to Josephine, Napoleon Bonaparte",
       "t": "2026-10-02T10:49:58.165Z"
+    },
+    {
+      "n": 30,
+      "q": "Farewell, beloved wife; farewell, my Josephine. May fate\nconcentrate in my breast all the griefs and troubles, but may it give Josephine happy and prosperous days. Who deserves them more? When it shall be quite settled that she can love me no more, I will hide my profound grief, and will content myself with the power of being useful and serviceable to her.",
+      "s": "Letters to Josephine, Napoleon Bonaparte",
+      "t": "2026-10-02T10:50:55.201Z"
     }
   ]
 }
