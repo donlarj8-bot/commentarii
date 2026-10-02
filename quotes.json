@@ -1,5 +1,5 @@
 {
-  "nextId": 4,
+  "nextId": 5,
   "quotes": [
     {
       "n": 1,
@@ -18,6 +18,12 @@
       "q": "Welcome to the infantry. This is our day, our job. It sucks, and we hate it, but we endure for two reasons. First, there is nobility and purpose in our lives. We are America’s warrior class. We protect; we avenge. Second, every moment in the infantry is a test. If we measure up to the worst days, such as this one, it proves we stand a breed apart from all other men.",
       "s": "House to House, David Bellavia",
       "t": "2026-10-02T08:21:03.090Z"
+    },
+    {
+      "n": 4,
+      "q": "Something you formerly loved as a truth or a probability now strikes you as an error; you cast it off and believe your reason has made a victory. But maybe that error was as necessary for you then, when you were still another person – you are always another person – as are all your present ‘truths’, like a skin that concealed and covered many things you weren’t allowed to see yet. It is your new life, not your reason, that has killed that opinion for you: you don’t need it any more, and now it collapses and unreason crawls out of it into the light like a worm. When we criticize, we are not doing something arbitrary and impersonal; it is, at least very often, proof that there are living, active forces within us shedding skin.",
+      "s": "Nietzsche, The Gay Science",
+      "t": "2026-10-02T08:24:50.014Z"
     }
   ]
 }
