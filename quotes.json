@@ -1,5 +1,5 @@
 {
-  "nextId": 52,
+  "nextId": 53,
   "quotes": [
     {
       "n": 1,
@@ -306,6 +306,12 @@
       "q": "The natural state of humanity without sovereign authority is a war of all against all—solitary, poor, nasty, brutish, and short.\n\nPower is centralized not out of love, but out of a shared covenant to escape violent uncertainty.\n\nAuthority without the sword is merely words, carrying no strength to secure compliance or protect property.",
       "s": "Leviathan — Thomas Hobbes",
       "t": "2026-10-03T05:37:33.461Z"
+    },
+    {
+      "n": 52,
+      "q": "Power is not only what you have, but what the enemy thinks you have.\n\nNever go outside the expertise of your people, but constantly force the opposition outside their zone of comfort.\n\nRidicule is humanity’s most potent psychological weapon; it is almost impossible to counter and infuriates the target into mistakes.",
+      "s": "Rules for Radicals — Saul Alinsky",
+      "t": "2026-10-03T05:38:37.634Z"
     }
   ]
 }
