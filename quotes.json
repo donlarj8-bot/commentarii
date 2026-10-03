@@ -1,5 +1,5 @@
 {
-  "nextId": 50,
+  "nextId": 51,
   "quotes": [
     {
       "n": 1,
@@ -294,6 +294,12 @@
       "q": "Strategy is not a rigid long-term plan, but the continuous art of creating fluid next steps under conditions of conflict.\n\nTrue strategic genius lies in managing shifting coalitions and narratives rather than relying on a single decisive stroke.\n\nUnderestimating an adversary’s capacity for adaptation is the primary failure mode of all complex strategies.",
       "s": "Strategy: A History — Lawrence Freedman",
       "t": "2026-10-03T05:29:02.445Z"
+    },
+    {
+      "n": 50,
+      "q": "Justice in systems requires specialized division of function: rulers, guardians, and producers acting strictly within their competencies.\n\nThe Allegory of the Cave: mass perception is shaped by shadow projections; breaking out requires enduring intellectual disorientation.\n\nDemocracies degenerate into tyrannies when unconstrained liberty produces demagogues who weaponize mob sentiment.",
+      "s": "The Republic — Plato",
+      "t": "2026-10-03T05:35:12.544Z"
     }
   ]
 }
