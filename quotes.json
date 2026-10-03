@@ -1,5 +1,5 @@
 {
-  "nextId": 47,
+  "nextId": 48,
   "quotes": [
     {
       "n": 1,
@@ -276,6 +276,12 @@
       "q": "Entrepreneurs should have the ability to accumulate, combine, and mobilize the particular resources required to exploit the opportunity they have created or discovered.",
       "s": "Entrepreneurship: A Very Short Introduction",
       "t": "2026-10-02T15:11:54.611Z"
+    },
+    {
+      "n": 47,
+      "q": "No leader rules alone; power depends entirely on keeping the \"essentials\" (the winning coalition) paid and loyal.\n\nThe size of the coalition determines governance quality: small coalitions produce kleptocracies; large coalitions force public goods delivery.\n\nNever replace an existing loyal coalition with a cheaper alternative unless you have total control over the replacement apparatus.",
+      "s": "7. The Dictator’s Handbook — Bruce Bueno de Mesquita & Alastair Smith",
+      "t": "2026-10-03T05:19:55.681Z"
     }
   ]
 }
