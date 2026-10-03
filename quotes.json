@@ -1,5 +1,5 @@
 {
-  "nextId": 55,
+  "nextId": 56,
   "quotes": [
     {
       "n": 1,
@@ -324,6 +324,12 @@
       "q": "“His [Alexander’s] passion was for glory only, and in that he was insatiable.”",
       "s": "Arrian: The Campaigns of Alexander",
       "t": "2026-10-03T05:45:45.617Z"
+    },
+    {
+      "n": 55,
+      "q": "SOMETHING EVEN MORE intense than passion moved Alexander; obsession drove him. From a young age, he believed that he was destined to become the master of the world. This pathological obsession not only persisted but also increased throughout his life. His lack of interest in ordinary pleasures was evident from his childhood. They barely tempted him, and he used them with impressive moderation. In contrast, he was passionate in his pursuit of glory.",
+      "s": "Leadership and Strategy Lessons from Alexander - Leandro P. Martini",
+      "t": "2026-10-03T05:47:13.393Z"
     }
   ]
 }
