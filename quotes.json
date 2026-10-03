@@ -1,5 +1,5 @@
 {
-  "nextId": 64,
+  "nextId": 65,
   "quotes": [
     {
       "n": 1,
@@ -378,6 +378,12 @@
       "q": "I could not have blamed you for being the first to lose heart if I, your commander, had not shared in your exhausting marches and your perilous campaigns; it would have been natural enough if you had done all the work merely for others to reap the reward. But it is not so. You and I, gentlemen, have shared the labor and shared the danger, and the rewards are for us all.",
       "s": "Leadership and Strategy Lessons from Alexander - Leandro P. Martini",
       "t": "2026-10-03T06:23:58.453Z"
+    },
+    {
+      "n": 64,
+      "q": "Over the next year, Sachin experienced the humiliation of staying behind for an additional year. He worked diligently, spending hours at the computer lab rather than thinking of ways to improve his gaming scores. He finished his final-year research project, completed the mandatory courses and finally secured his degree. In July 2005, he joined the small Indian software firm Techspan in Bangalore. It was hardly a dream job.",
+      "s": "Big Billion Startup - The Flipkart Story",
+      "t": "2026-10-03T18:44:36.770Z"
     }
   ]
 }
