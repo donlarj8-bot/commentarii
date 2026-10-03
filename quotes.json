@@ -1,5 +1,5 @@
 {
-  "nextId": 53,
+  "nextId": 54,
   "quotes": [
     {
       "n": 1,
@@ -312,6 +312,12 @@
       "q": "Power is not only what you have, but what the enemy thinks you have.\n\nNever go outside the expertise of your people, but constantly force the opposition outside their zone of comfort.\n\nRidicule is humanity’s most potent psychological weapon; it is almost impossible to counter and infuriates the target into mistakes.",
       "s": "Rules for Radicals — Saul Alinsky",
       "t": "2026-10-03T05:38:37.634Z"
+    },
+    {
+      "n": 53,
+      "q": "Inequality is natural and grows alongside freedom; liberty and equality are inverse forces in civilization.\n\nHistory repeats because human nature remains constant across thousands of years of technological evolution.\n\nConcentration of wealth is inevitable, leading cyclically either to violent redistribution or peaceful legislative redistribution.",
+      "s": "The Lessons of History — Will & Ariel Durant",
+      "t": "2026-10-03T05:44:25.846Z"
     }
   ]
 }
