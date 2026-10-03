@@ -1,5 +1,5 @@
 {
-  "nextId": 54,
+  "nextId": 55,
   "quotes": [
     {
       "n": 1,
@@ -318,6 +318,12 @@
       "q": "Inequality is natural and grows alongside freedom; liberty and equality are inverse forces in civilization.\n\nHistory repeats because human nature remains constant across thousands of years of technological evolution.\n\nConcentration of wealth is inevitable, leading cyclically either to violent redistribution or peaceful legislative redistribution.",
       "s": "The Lessons of History — Will & Ariel Durant",
       "t": "2026-10-03T05:44:25.846Z"
+    },
+    {
+      "n": 54,
+      "q": "“His [Alexander’s] passion was for glory only, and in that he was insatiable.”",
+      "s": "Arrian: The Campaigns of Alexander",
+      "t": "2026-10-03T05:45:45.617Z"
     }
   ]
 }
