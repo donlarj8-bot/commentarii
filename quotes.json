@@ -1,5 +1,5 @@
 {
-  "nextId": 48,
+  "nextId": 49,
   "quotes": [
     {
       "n": 1,
@@ -282,6 +282,12 @@
       "q": "No leader rules alone; power depends entirely on keeping the \"essentials\" (the winning coalition) paid and loyal.\n\nThe size of the coalition determines governance quality: small coalitions produce kleptocracies; large coalitions force public goods delivery.\n\nNever replace an existing loyal coalition with a cheaper alternative unless you have total control over the replacement apparatus.",
       "s": "7. The Dictator’s Handbook — Bruce Bueno de Mesquita & Alastair Smith",
       "t": "2026-10-03T05:19:55.681Z"
+    },
+    {
+      "n": 48,
+      "q": "Stability in international systems is achieved through a shared perception of legitimacy, not the total defeat of rivals.\n\nNational interest (raison d'état) must supersede moral preferences and domestic ideological sentiment.\n\nGreat powers must maintain strategic ambiguity while preserving credible deterrent capabilities.",
+      "s": "Diplomacy — Henry Kissinger",
+      "t": "2026-10-03T05:26:42.411Z"
     }
   ]
 }
