@@ -1,5 +1,5 @@
 {
-  "nextId": 51,
+  "nextId": 52,
   "quotes": [
     {
       "n": 1,
@@ -300,6 +300,12 @@
       "q": "Justice in systems requires specialized division of function: rulers, guardians, and producers acting strictly within their competencies.\n\nThe Allegory of the Cave: mass perception is shaped by shadow projections; breaking out requires enduring intellectual disorientation.\n\nDemocracies degenerate into tyrannies when unconstrained liberty produces demagogues who weaponize mob sentiment.",
       "s": "The Republic — Plato",
       "t": "2026-10-03T05:35:12.544Z"
+    },
+    {
+      "n": 51,
+      "q": "The natural state of humanity without sovereign authority is a war of all against all—solitary, poor, nasty, brutish, and short.\n\nPower is centralized not out of love, but out of a shared covenant to escape violent uncertainty.\n\nAuthority without the sword is merely words, carrying no strength to secure compliance or protect property.",
+      "s": "Leviathan — Thomas Hobbes",
+      "t": "2026-10-03T05:37:33.461Z"
     }
   ]
 }
