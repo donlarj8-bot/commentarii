@@ -1,5 +1,5 @@
 {
-  "nextId": 49,
+  "nextId": 50,
   "quotes": [
     {
       "n": 1,
@@ -288,6 +288,12 @@
       "q": "Stability in international systems is achieved through a shared perception of legitimacy, not the total defeat of rivals.\n\nNational interest (raison d'état) must supersede moral preferences and domestic ideological sentiment.\n\nGreat powers must maintain strategic ambiguity while preserving credible deterrent capabilities.",
       "s": "Diplomacy — Henry Kissinger",
       "t": "2026-10-03T05:26:42.411Z"
+    },
+    {
+      "n": 49,
+      "q": "Strategy is not a rigid long-term plan, but the continuous art of creating fluid next steps under conditions of conflict.\n\nTrue strategic genius lies in managing shifting coalitions and narratives rather than relying on a single decisive stroke.\n\nUnderestimating an adversary’s capacity for adaptation is the primary failure mode of all complex strategies.",
+      "s": "Strategy: A History — Lawrence Freedman",
+      "t": "2026-10-03T05:29:02.445Z"
     }
   ]
 }
