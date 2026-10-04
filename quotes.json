@@ -1,5 +1,5 @@
 {
-  "nextId": 65,
+  "nextId": 66,
   "quotes": [
     {
       "n": 1,
@@ -384,6 +384,12 @@
       "q": "Over the next year, Sachin experienced the humiliation of staying behind for an additional year. He worked diligently, spending hours at the computer lab rather than thinking of ways to improve his gaming scores. He finished his final-year research project, completed the mandatory courses and finally secured his degree. In July 2005, he joined the small Indian software firm Techspan in Bangalore. It was hardly a dream job.",
       "s": "Big Billion Startup - The Flipkart Story",
       "t": "2026-10-03T18:44:36.770Z"
+    },
+    {
+      "n": 65,
+      "q": "The Upanishads and the Gita are the true scriptures.\n\nThe Gita is the gist of the Vedas. It is not our Bible; the Upanishads are our Bible. It [the Gita] is the gist of the Upanishads and harmonizes the many contradictory parts of the Upanishads.",
+      "s": "BHAGAVAD GITA AS VIEWED BY SWAMI VIVEKANANDA",
+      "t": "2026-10-04T07:17:20.449Z"
     }
   ]
 }
