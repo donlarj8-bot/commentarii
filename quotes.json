@@ -1,5 +1,5 @@
 {
-  "nextId": 67,
+  "nextId": 68,
   "quotes": [
     {
       "n": 1,
@@ -396,6 +396,12 @@
       "q": "Against either circumstance, the stable person keeps their rational soul invincible, for it’s precisely in the good times they prove their strength against adversity.",
       "s": "The Daily Stoic by Ryan Holiday",
       "t": "2026-10-14T12:42:20.265Z"
+    },
+    {
+      "n": 67,
+      "q": "Viktor Frankl spent three years imprisoned in various concentration camps, including Auschwitz. His family and\nhis wife had been killed. \n\nYet, as he discovered after much thought, he still retained one thing: the ability to determine what this suffering meant. Not even the Nazis could take that from him. Further, Frankl realized that he could actually find positives in his\nsituation.",
+      "s": "The Daily Stoic by Ryan Holiday",
+      "t": "2026-10-14T12:43:42.663Z"
     }
   ]
 }
