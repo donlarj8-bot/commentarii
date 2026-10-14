@@ -1,5 +1,5 @@
 {
-  "nextId": 68,
+  "nextId": 69,
   "quotes": [
     {
       "n": 1,
@@ -402,6 +402,12 @@
       "q": "Viktor Frankl spent three years imprisoned in various concentration camps, including Auschwitz. His family and\nhis wife had been killed. \n\nYet, as he discovered after much thought, he still retained one thing: the ability to determine what this suffering meant. Not even the Nazis could take that from him. Further, Frankl realized that he could actually find positives in his situation.",
       "s": "The Daily Stoic by Ryan Holiday",
       "t": "2026-10-14T12:43:42.663Z"
+    },
+    {
+      "n": 68,
+      "q": "Deem as your own only what is yours, and what belongs to others as truly not yours.\n\nEpictetus",
+      "s": "The Daily Stoic by Ryan Holiday",
+      "t": "2026-10-14T12:54:37.887Z"
     }
   ]
 }
