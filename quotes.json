@@ -1,5 +1,5 @@
 {
-  "nextId": 70,
+  "nextId": 71,
   "quotes": [
     {
       "n": 1,
@@ -414,6 +414,12 @@
       "q": "Kill The Fear\n\nAn economic depression is bad; a panic is worse. A tough situation isn’t helped by terror—it only makes things harder. And that’s why we must resist it and reject it if we wish to turn this situation around.",
       "s": "The Daily Stoic by Ryan Holiday",
       "t": "2026-10-14T12:57:19.991Z"
+    },
+    {
+      "n": 70,
+      "q": "It is when times are good that you should gird yourself for tougher times ahead, for when Fortune is kind the soul can build defenses against her ravages. So it is that soldiers practice maneuvers in peacetime, erecting bunkers with no enemies in sight and exhausting themselves under no attack so that when it comes they won’t grow tired.”\n\nSeneca",
+      "s": "The Daily Stoic by Ryan Holiday",
+      "t": "2026-10-14T13:01:59.875Z"
     }
   ]
 }
