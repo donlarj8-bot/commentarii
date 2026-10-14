@@ -1,5 +1,5 @@
 {
-  "nextId": 69,
+  "nextId": 70,
   "quotes": [
     {
       "n": 1,
@@ -408,6 +408,12 @@
       "q": "Deem as your own only what is yours, and what belongs to others as truly not yours.\n\nEpictetus",
       "s": "The Daily Stoic by Ryan Holiday",
       "t": "2026-10-14T12:54:37.887Z"
+    },
+    {
+      "n": 69,
+      "q": "Kill The Fear\n\nAn economic depression is bad; a panic is worse. A tough situation isn’t helped by terror—it only makes things harder. And that’s why we must resist it and reject it if we wish to turn this situation around.",
+      "s": "The Daily Stoic by Ryan Holiday",
+      "t": "2026-10-14T12:57:19.991Z"
     }
   ]
 }
