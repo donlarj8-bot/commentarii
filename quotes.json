@@ -1,5 +1,5 @@
 {
-  "nextId": 66,
+  "nextId": 67,
   "quotes": [
     {
       "n": 1,
@@ -390,6 +390,12 @@
       "q": "The Upanishads and the Gita are the true scriptures.\n\nThe Gita is the gist of the Vedas. It is not our Bible; the Upanishads are our Bible. It [the Gita] is the gist of the Upanishads and harmonizes the many contradictory parts of the Upanishads.",
       "s": "BHAGAVAD GITA AS VIEWED BY SWAMI VIVEKANANDA",
       "t": "2026-10-04T07:17:20.449Z"
+    },
+    {
+      "n": 66,
+      "q": "Against either circumstance, the stable person keeps their rational soul invincible, for it’s precisely in the good times they prove their strength against adversity.",
+      "s": "The Daily Stoic by Ryan Holiday",
+      "t": "2026-10-14T12:42:20.265Z"
     }
   ]
 }
