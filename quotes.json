@@ -1,5 +1,5 @@
 {
-  "nextId": 71,
+  "nextId": 72,
   "quotes": [
     {
       "n": 1,
@@ -420,6 +420,12 @@
       "q": "It is when times are good that you should gird yourself for tougher times ahead, for when Fortune is kind the soul can build defenses against her ravages. So it is that soldiers practice maneuvers in peacetime, erecting bunkers with no enemies in sight and exhausting themselves under no attack so that when it comes they won’t grow tired.”\n\nSeneca",
       "s": "The Daily Stoic by Ryan Holiday",
       "t": "2026-10-14T13:01:59.875Z"
+    },
+    {
+      "n": 71,
+      "q": "Remember we are talking about revolution, not revelation; you can miss the target by shooting too high as well as too low.",
+      "s": "Rules for Radicals — Saul Alinsky",
+      "t": "2026-10-17T16:57:06.083Z"
     }
   ]
 }
