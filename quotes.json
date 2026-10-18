@@ -1,5 +1,5 @@
 {
-  "nextId": 76,
+  "nextId": 77,
   "quotes": [
     {
       "n": 1,
@@ -450,6 +450,12 @@
       "q": "Alexander studied the Anabasis, of course, and used Cyrus’ experience in Asia as a reference for his initial steps into this land, which was new for him and his people.",
       "s": "Leadership and Strategy Lessons from Alexander - Leandro P. Martini",
       "t": "2026-10-18T04:13:16.804Z"
+    },
+    {
+      "n": 76,
+      "q": "Seek Obstacles!\n\nHis obsession for honor and endless glory was such that he preferred to receive a kingdom in trouble, where he would have to prove his courage and superiority, rather than one already prosperous and settled, where he would have a sedentary life surrounded by riches and comfort.",
+      "s": "",
+      "t": "2026-10-18T04:30:40.124Z"
     }
   ]
 }
