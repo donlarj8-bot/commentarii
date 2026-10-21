@@ -1,5 +1,5 @@
 {
-  "nextId": 85,
+  "nextId": 86,
   "quotes": [
     {
       "n": 1,
@@ -504,6 +504,12 @@
       "q": "The demand for AI applications has increased while the barrier to entry for building AI applications has decreased. \n\nThis has turned AI engineering—the process of building applications on top of readily available models—into one of the fastest-growing engineering disciplines.",
       "s": "AI Engineering: Building Applications with Foundation Models",
       "t": "2026-10-21T12:39:41.683Z"
+    },
+    {
+      "n": 85,
+      "q": "War & Ethics don't go together.\n\nWhat Darwin accomplished for Biology generally Clausewitz did\nfor the Life-History of Nations nearly half a century before him, for\nboth have proved the existence of the same law in each case, viz.,\n“The survival of the fittest”—the “fittest,” as Huxley long since\npointed out, not being necessarily synonymous with the ethically\n“best.”",
+      "s": "On War — Carl von Clausewitz",
+      "t": "2026-10-21T14:06:08.991Z"
     }
   ]
 }
