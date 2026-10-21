@@ -1,5 +1,5 @@
 {
-  "nextId": 82,
+  "nextId": 83,
   "quotes": [
     {
       "n": 1,
@@ -486,6 +486,12 @@
       "q": "Referent power and expert power tend to cause the highest level of commitment, and several studies have shown that they produce high levels of satisfaction and performance among followers.",
       "s": "Leadership and Strategy Lessons from Alexander - Leandro P. Martini",
       "t": "2026-10-18T05:16:34.369Z"
+    },
+    {
+      "n": 82,
+      "q": "If I was to get to know him, I would have to understand his science-fiction alter ego: to see the capacity for endurance, the ability to suffer and still soldier on. Like Ender, Hassabis had dedicated every fiber of his being to the accomplishment of a mission, which was why he worked night shifts from ten in the evening until around four in the morning in addition to his normal office hours. Like Ender, Hassabis felt a burden of responsibility. “If you are trying to solve humanity’s problems and understand the nature of reality, you don’t have any time to waste,” he said.",
+      "s": "The Infinity Machine (Demis Hassabis) - Sebastian Mallaby",
+      "t": "2026-10-21T07:37:47.307Z"
     }
   ]
 }
