@@ -1,24 +1,35 @@
 (function () {
   'use strict';
 
-  /* ======= EDIT THESE TWO LINES ======= */
+  /* ======= SETTINGS ======= */
   var REPO = 'donlarj8-bot/commentarii';
   var BRANCH = 'main';
-  /* ==================================== */
+  /* ======================== */
+
+  /* ======= YOUR WORDING (edit here) =======
+     Tip: text containing an apostrophe must sit in "double quotes". */
+  var TAGLINE = 'Lines worth keeping from the books I read and the people I listen to.';
+  var EPI_LINE = "I'm Deepak Lead";
+  var EPI_SUB = 'I Read, I Lead, by God.';
+  /* ======================================== */
 
   var FILE = 'quotes.json';
   var TOKEN_KEY = 'commentarii-token';
+  var MODE_KEY = 'commentarii-mode';
 
   var state = { nextId: 1, quotes: [] };
   var ui = {
-    search: '', source: '', newestFirst: true,
+    search: '', newestFirst: true,
     owner: false, token: '', busy: false, confirmId: null, editT: null, confirmRenum: false,
-    loading: true, loadError: false, showSignin: false
+    loading: true, loadError: false, showSignin: false,
+    mode: 'scroll', idx: 0, dir: '',
+    view: 'home', srcKey: '', srcSort: 'az'
   };
 
   /* ---------- storage (guarded) ---------- */
   function store(k, v) { try { if (v == null) localStorage.removeItem(k); else localStorage.setItem(k, v); } catch (e) {} }
   function read(k) { try { return localStorage.getItem(k) || ''; } catch (e) { return ''; } }
+  ui.mode = read(MODE_KEY) === 'swipe' ? 'swipe' : 'scroll';
 
   /* ---------- helpers ---------- */
   function h(tag, props, kids) {
@@ -75,7 +86,7 @@
       var a0 = Math.PI / 2 + side * 0.22, a1 = Math.PI / 2 + side * 2.42;
       out.push('<path d="M' + (cx + r * Math.cos(a0)).toFixed(1) + ' ' + (cy + r * Math.sin(a0)).toFixed(1) +
         ' A' + r + ' ' + r + ' 0 0 ' + (side === 1 ? 1 : 0) + ' ' + (cx + r * Math.cos(a1)).toFixed(1) + ' ' + (cy + r * Math.sin(a1)).toFixed(1) +
-        '" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"/>');
+        '" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"/>');
       for (var i = 0; i < N; i++) {
         var t = i / (N - 1);
         var th = Math.PI / 2 + side * (0.22 + t * 2.2);
@@ -90,6 +101,34 @@
     }
     return '<svg viewBox="0 0 200 200" aria-hidden="true" focusable="false">' + out.join('') + '</svg>';
   }
+
+  /* ---------- sources ---------- */
+  function sourceKey(s) { return (s || '').trim().replace(/\s+/g, ' ').toLowerCase(); }
+
+  // One row per source (spelling and capital letters ignored), with how many quotes it has.
+  function sourceList() {
+    var map = Object.create(null), order = [];
+    state.quotes.slice().sort(function (a, b) { return a.n - b.n; }).forEach(function (e) {
+      var k = sourceKey(e.s);
+      if (!k) return;
+      if (!map[k]) { map[k] = { key: k, name: e.s.trim().replace(/\s+/g, ' '), count: 0 }; order.push(k); }
+      map[k].count++;
+    });
+    return order.map(function (k) { return map[k]; });
+  }
+  function uniqueSources() {
+    return sourceList().map(function (s) { return s.name; }).sort(function (a, b) { return a.localeCompare(b); });
+  }
+
+  /* ---------- routing (#/ , #/sources , #/source/<name>) ---------- */
+  function parseHash() {
+    var hsh = location.hash || '';
+    if (hsh === '#/sources') return { view: 'sources', key: '' };
+    var m = hsh.match(/^#\/source\/(.+)$/);
+    if (m) { try { return { view: 'source', key: decodeURIComponent(m[1]) }; } catch (e) {} }
+    return { view: 'home', key: '' };
+  }
+  function nav(hash) { location.hash = hash; }
 
   /* ---------- GitHub API ---------- */
   function api(path, opts) {
@@ -136,40 +175,45 @@
 
   /* ---------- page skeleton ---------- */
   var app = document.getElementById('app');
-  var crown = h('div', { class: 'crown' });
-  var hero = h('header', { class: 'hero' }, [
-    h('div', { class: 'hero-inner' }, [
-      crown,
-      h('h1', { text: 'COMMENTARII' }),
-      h('p', { class: 'sub', text: 'Lines worth keeping from the books I read and the people I listen to.' }),
-      h('p', { class: 'epi' }, ["I'm Deepak Lead", h('span', { text: 'I Read, I Lead, by God.' })])
-    ]),
-    h('div', { class: 'meander', 'aria-hidden': 'true' })
+
+  var crown = h('div', { class: 'crown', role: 'img' });
+  var scrollBtn = h('button', { type: 'button', text: 'Scroll', onclick: function () { setMode('scroll'); } });
+  var swipeBtn = h('button', { type: 'button', text: 'Swipe', onclick: function () { setMode('swipe'); } });
+  var seg = h('div', { class: 'seg', role: 'group', 'aria-label': 'How to browse the quotes' }, [scrollBtn, swipeBtn]);
+
+  var bar = h('header', { class: 'bar' }, [
+    h('div', { class: 'bar-in' }, [
+      h('div', { class: 'bar-top' }, [
+        crown,
+        h('h1', null, [h('a', { href: '#/', text: 'Commentarii' })]),
+        seg
+      ]),
+      h('p', { class: 'bar-line', text: TAGLINE }),
+      h('p', { class: 'bar-line epi' }, [h('b', { text: EPI_LINE }), h('span', { text: EPI_SUB })])
+    ])
   ]);
 
   var adminEl = h('section', { class: 'admin', hidden: true, 'aria-label': 'Add an entry' });
+
   var searchEl = h('input', {
     type: 'search', placeholder: 'Search quotes and sources', autocomplete: 'off',
     'aria-label': 'Search quotes and sources',
-    oninput: function (e) { ui.search = e.target.value; renderList(); }
+    oninput: function (e) { ui.search = e.target.value; ui.idx = 0; renderList(); }
   });
-  var sourceSel = h('select', {
-    'aria-label': 'Filter by source',
-    onchange: function (e) { ui.source = e.target.value; renderList(); }
-  });
-  var sortBtn = h('button', {
-    type: 'button', class: 'link-btn',
-    onclick: function () { ui.newestFirst = !ui.newestFirst; renderList(); }
-  });
+  var srcBtn = h('button', { type: 'button', class: 'ctl-btn', onclick: function () { nav('#/sources'); } });
+  var sortBtn = h('button', { type: 'button', class: 'link-btn', onclick: toggleSort });
+  var homeCtl = h('div', { class: 'controls' }, [searchEl, srcBtn, sortBtn]);
+
+  var backBtn = h('button', { type: 'button', class: 'link-btn back', text: '\u2190 All sources', onclick: function () { nav('#/sources'); } });
+  var sortBtn2 = h('button', { type: 'button', class: 'link-btn', onclick: toggleSort });
+  var srcCtl = h('div', { class: 'controls src-ctl' }, [backBtn, sortBtn2]);
+  var srcTitle = h('h2', { class: 'src-title' });
+
   var countEl = h('p', { class: 'count-line', 'aria-live': 'polite' });
   var listEl = h('div', { class: 'entries' });
+  var sourcesEl = h('section', { class: 'sources', 'aria-label': 'All sources' });
 
-  var main = h('main', { class: 'wrap' }, [
-    adminEl,
-    h('div', { class: 'controls' }, [searchEl, sourceSel, sortBtn]),
-    countEl,
-    listEl
-  ]);
+  var main = h('main', { class: 'wrap' }, [adminEl, homeCtl, srcCtl, srcTitle, countEl, listEl, sourcesEl]);
 
   var signinEl = h('div', { class: 'signin', hidden: true });
   var signinToggle = h('button', {
@@ -179,47 +223,50 @@
   var foot = h('footer', { class: 'foot' }, [signinToggle, signinEl]);
 
   app.textContent = '';
-  app.appendChild(hero);
+  app.appendChild(bar);
   app.appendChild(main);
   app.appendChild(foot);
 
-  /* ---------- hero count ---------- */
+  function toggleSort() { ui.newestFirst = !ui.newestFirst; ui.idx = 0; renderList(); }
+
+  /* ---------- header badge: how many entries ---------- */
   function renderCrown() {
     var total = state.quotes.length;
     var t = total === 0 ? '0' : toRoman(total);
+    if (t.length > 4) t = String(total);
+    var fs = t.length <= 2 ? '0.95rem' : t.length === 3 ? '0.78rem' : t.length === 4 ? '0.62rem' : '0.5rem';
     crown.textContent = '';
     crown.innerHTML = wreathSvg();
-    crown.appendChild(h('span', {
-      class: 'count', text: t, role: 'img',
-      style: 'font-size:' + (t.length <= 3 ? '1.9rem' : t.length <= 5 ? '1.35rem' : '1rem'),
-      'aria-label': total + (total === 1 ? ' entry' : ' entries')
-    }));
+    crown.setAttribute('aria-label', total + (total === 1 ? ' entry' : ' entries'));
+    crown.appendChild(h('span', { class: 'count', text: t, style: 'font-size:' + fs }));
   }
 
-  /* ---------- list ---------- */
-  function uniqueSources() {
-    var seen = {};
-    state.quotes.forEach(function (e) { if (e.s) seen[e.s] = true; });
-    return Object.keys(seen).sort(function (a, b) { return a.localeCompare(b); });
+  /* ---------- which part of the page is showing ---------- */
+  function renderPage() {
+    var v = ui.view;
+    adminEl.hidden = !(ui.owner && v === 'home');
+    homeCtl.hidden = v !== 'home';
+    srcCtl.hidden = v !== 'source';
+    srcTitle.hidden = v !== 'source';
+    countEl.hidden = v === 'sources';
+    listEl.hidden = v === 'sources';
+    sourcesEl.hidden = v !== 'sources';
+    main.className = 'wrap' + (v === 'sources' ? ' wide' : '');
+    bar.className = 'bar' + (v === 'sources' ? ' wide' : '');
+    document.title = v === 'sources' ? 'Sources | Commentarii' : 'Commentarii';
   }
 
   function renderControls() {
-    var sources = uniqueSources();
-    if (ui.source && sources.indexOf(ui.source) === -1) ui.source = '';
-    sourceSel.textContent = '';
-    sourceSel.appendChild(h('option', { value: '', text: 'All sources' }));
-    sources.forEach(function (s) {
-      var o = h('option', { value: s, text: s });
-      if (s === ui.source) o.selected = true;
-      sourceSel.appendChild(o);
-    });
-    sourceSel.hidden = sources.length === 0;
+    var n = sourceList().length;
+    srcBtn.textContent = 'Sources (' + n + ')';
+    srcBtn.setAttribute('aria-label', 'Browse all ' + n + (n === 1 ? ' source' : ' sources'));
   }
 
+  /* ---------- quotes list ---------- */
   function visible() {
-    var term = ui.search.trim().toLowerCase();
+    var term = ui.view === 'home' ? ui.search.trim().toLowerCase() : '';
     var list = state.quotes.filter(function (e) {
-      if (ui.source && e.s !== ui.source) return false;
+      if (ui.view === 'source' && sourceKey(e.s) !== ui.srcKey) return false;
       if (!term) return true;
       return (e.q + ' ' + (e.s || '')).toLowerCase().indexOf(term) !== -1;
     });
@@ -279,11 +326,11 @@
   function entryEl(e) {
     if (ui.owner && ui.editT === e.t) return editorEl(e);
     var meta = [];
-    if (e.s) {
+    if (e.s && ui.view !== 'source') {
       meta.push(h('button', {
         type: 'button', class: 'link-btn source', text: e.s,
-        title: 'Show only entries from this source',
-        onclick: function () { ui.source = e.s; renderControls(); renderList(); }
+        title: 'See every quote from this source',
+        onclick: function () { nav('#/source/' + encodeURIComponent(sourceKey(e.s))); }
       }));
     }
     meta.push(h('time', { class: 'when', datetime: e.t, text: fmtDate(e.t) }));
@@ -293,13 +340,12 @@
         meta.push(h('button', { type: 'button', class: 'link-btn', text: 'Keep', onclick: function () { ui.confirmId = null; renderList(); } }));
       } else {
         meta.push(h('button', {
-          type: 'button', class: 'link-btn', text: 'Edit', 'aria-label': 'Edit entry ' + e.n,
-          style: 'margin-left:auto;color:var(--muted);font-size:0.95rem',
+          type: 'button', class: 'link-btn remove', text: 'Edit', 'aria-label': 'Edit entry ' + e.n,
           onclick: function () { ui.editT = e.t; ui.confirmId = null; renderList(); }
         }));
         meta.push(h('button', {
-          type: 'button', class: 'link-btn remove', text: 'Remove', 'aria-label': 'Remove entry ' + e.n,
-          style: 'margin-left:0',
+          type: 'button', class: 'link-btn', text: 'Remove', 'aria-label': 'Remove entry ' + e.n,
+          style: 'color:var(--muted);font-size:0.95rem',
           onclick: function () { ui.confirmId = e.t; renderList(); }
         }));
       }
@@ -314,31 +360,149 @@
   }
 
   function renderList() {
-    sortBtn.textContent = ui.newestFirst ? 'Newest first' : 'Oldest first';
-    sortBtn.setAttribute('aria-label', 'Sort order: ' + sortBtn.textContent + '. Press to reverse.');
-    listEl.textContent = '';
+    scrollBtn.setAttribute('aria-pressed', ui.mode === 'scroll' ? 'true' : 'false');
+    swipeBtn.setAttribute('aria-pressed', ui.mode === 'swipe' ? 'true' : 'false');
+    var label = ui.newestFirst ? 'Newest first' : 'Oldest first';
+    [sortBtn, sortBtn2].forEach(function (b) {
+      b.textContent = label;
+      b.setAttribute('aria-label', 'Sort order: ' + label + '. Press to reverse.');
+    });
+    if (ui.view === 'sources') { renderSources(); return; }
 
+    listEl.textContent = '';
     if (ui.loading) { countEl.textContent = ''; listEl.style.border = '0'; listEl.appendChild(h('p', { class: 'empty', text: 'Loading the collection…' })); return; }
     if (ui.loadError) { countEl.textContent = ''; listEl.style.border = '0'; listEl.appendChild(h('p', { class: 'empty', text: 'The collection could not be loaded. Refresh the page to try again.' })); return; }
 
-    var items = visible();
-    var filtering = ui.search.trim() || ui.source;
+    var isSrc = ui.view === 'source';
+    if (isSrc) {
+      var found = sourceList().filter(function (s) { return s.key === ui.srcKey; })[0];
+      srcTitle.textContent = found ? found.name : 'Source not found';
+    }
+
     if (state.quotes.length === 0) {
       countEl.textContent = '';
       listEl.style.border = '0';
       listEl.appendChild(h('p', { class: 'empty', text: ui.owner ? 'The record is empty. Add your first line in the box above.' : 'Nothing is written here yet. Check back soon.' }));
       return;
     }
+
+    var items = visible();
     listEl.style.border = '';
-    countEl.textContent = filtering
-      ? items.length + ' of ' + state.quotes.length + ' entries match'
-      : state.quotes.length + (state.quotes.length === 1 ? ' entry' : ' entries');
+    if (isSrc) countEl.textContent = items.length + (items.length === 1 ? ' quote' : ' quotes');
+    else if (ui.search.trim()) countEl.textContent = items.length + ' of ' + state.quotes.length + ' entries match';
+    else countEl.textContent = state.quotes.length + (state.quotes.length === 1 ? ' entry' : ' entries');
+
     if (items.length === 0) {
-      listEl.appendChild(h('p', { class: 'empty', text: 'No entries match. Try a different word or clear the source filter.' }));
+      listEl.style.border = '0';
+      listEl.appendChild(h('p', { class: 'empty', text: isSrc ? 'No quotes from this source.' : 'No entries match. Try a different word.' }));
       return;
     }
+    if (ui.mode === 'swipe') { renderDeck(items); return; }
     items.forEach(function (e) { listEl.appendChild(entryEl(e)); });
   }
+
+  /* ---------- sources page ---------- */
+  function renderSources() {
+    sourcesEl.textContent = '';
+    if (ui.loading) { sourcesEl.appendChild(h('p', { class: 'empty', text: 'Loading the collection…' })); return; }
+    if (ui.loadError) { sourcesEl.appendChild(h('p', { class: 'empty', text: 'The collection could not be loaded. Refresh the page to try again.' })); return; }
+
+    var list = sourceList();
+    if (ui.srcSort === 'most') {
+      list.sort(function (a, b) { return (b.count - a.count) || a.name.localeCompare(b.name); });
+    } else {
+      list.sort(function (a, b) { return a.name.localeCompare(b.name, undefined, { sensitivity: 'base' }); });
+    }
+
+    var azBtn = h('button', {
+      type: 'button', class: 'link-btn', text: 'A to Z', 'aria-pressed': ui.srcSort === 'az' ? 'true' : 'false',
+      onclick: function () { ui.srcSort = 'az'; renderSources(); }
+    });
+    var mostBtn = h('button', {
+      type: 'button', class: 'link-btn', text: 'Most quotes', 'aria-pressed': ui.srcSort === 'most' ? 'true' : 'false',
+      onclick: function () { ui.srcSort = 'most'; renderSources(); }
+    });
+
+    sourcesEl.appendChild(h('div', { class: 'src-head' }, [
+      h('button', { type: 'button', class: 'link-btn back', text: '\u2190 Quotes', onclick: function () { nav('#/'); } }),
+      h('h2', { text: 'Sources' }),
+      h('p', { class: 'src-count', text: list.length + (list.length === 1 ? ' source' : ' sources') + ', ' + state.quotes.length + (state.quotes.length === 1 ? ' quote' : ' quotes') }),
+      h('div', { class: 'src-sort' }, [azBtn, mostBtn])
+    ]));
+
+    if (list.length === 0) {
+      sourcesEl.appendChild(h('p', { class: 'empty', text: 'No sources yet. Quotes added with a source will appear here.' }));
+      return;
+    }
+
+    sourcesEl.appendChild(h('ol', { class: 'src-list' }, list.map(function (s, i) {
+      return h('li', null, [h('button', {
+        type: 'button', class: 'src-item', title: s.name,
+        onclick: function () { nav('#/source/' + encodeURIComponent(s.key)); }
+      }, [
+        h('span', { class: 'src-n', text: String(i + 1) }),
+        h('span', { class: 'src-name', text: s.name }),
+        h('span', { class: 'src-c', text: String(s.count), 'aria-label': s.count + (s.count === 1 ? ' quote' : ' quotes') })
+      ])]);
+    })));
+  }
+
+  /* ---------- swipe view ---------- */
+  function setMode(m) {
+    ui.mode = m; ui.idx = 0; ui.dir = ''; ui.confirmId = null;
+    store(MODE_KEY, m);
+    renderList();
+  }
+
+  function go(d) {
+    if (ui.view === 'sources') return;
+    var n = visible().length, ni = ui.idx + d;
+    if (ui.editT || ni < 0 || ni >= n) return;
+    ui.idx = ni; ui.dir = d > 0 ? 'next' : 'prev'; ui.confirmId = null;
+    renderList();
+  }
+
+  function attachSwipe(card) {
+    var sx = null, sy = null;
+    card.addEventListener('pointerdown', function (ev) {
+      if (ev.target.closest && ev.target.closest('button, input, textarea, select, label')) { sx = null; return; }
+      sx = ev.clientX; sy = ev.clientY;
+    });
+    card.addEventListener('pointerup', function (ev) {
+      if (sx == null) return;
+      var dx = ev.clientX - sx, dy = ev.clientY - sy;
+      sx = null;
+      if (Math.abs(dx) > 50 && Math.abs(dx) > Math.abs(dy) * 1.5) go(dx < 0 ? 1 : -1);
+    });
+    card.addEventListener('pointercancel', function () { sx = null; });
+  }
+
+  function renderDeck(items) {
+    listEl.style.border = '0';
+    if (ui.idx >= items.length) ui.idx = items.length - 1;
+    if (ui.idx < 0) ui.idx = 0;
+    var card = h('div', { class: 'deck-card' }, [entryEl(items[ui.idx])]);
+    if (ui.dir) card.setAttribute('data-dir', ui.dir);
+    ui.dir = '';
+    var prev = h('button', { type: 'button', class: 'nav-btn', text: 'Previous', onclick: function () { go(-1); } });
+    var next = h('button', { type: 'button', class: 'nav-btn', text: 'Next', onclick: function () { go(1); } });
+    prev.disabled = !!ui.editT || ui.idx === 0;
+    next.disabled = !!ui.editT || ui.idx === items.length - 1;
+    attachSwipe(card);
+    listEl.appendChild(h('div', { class: 'deck' }, [
+      card,
+      h('div', { class: 'deck-nav' }, [prev, h('span', { class: 'deck-pos', text: (ui.idx + 1) + ' of ' + items.length }), next]),
+      h('p', { class: 'deck-hint', text: 'Swipe the card left or right, or use the arrow keys.' })
+    ]));
+  }
+
+  document.addEventListener('keydown', function (ev) {
+    if (ui.mode !== 'swipe' || ui.view === 'sources') return;
+    var t = ev.target && ev.target.tagName;
+    if (t === 'INPUT' || t === 'TEXTAREA' || t === 'SELECT') return;
+    if (ev.key === 'ArrowRight') go(1);
+    else if (ev.key === 'ArrowLeft') go(-1);
+  });
 
   /* ---------- admin ---------- */
   var qEl, sEl, previewEl, errEl, noticeEl, addBtn, datalistEl, gapEl, gapMsg, gapBtn;
@@ -367,8 +531,7 @@
 
   function buildAdmin() {
     adminEl.textContent = '';
-    if (!ui.owner) { adminEl.hidden = true; return; }
-    adminEl.hidden = false;
+    if (!ui.owner) return;
 
     qEl = h('textarea', {
       id: 'f-quote', rows: '4', maxlength: '4000', placeholder: 'Paste or write the line here',
@@ -450,16 +613,16 @@
   function removeEntry(t) {
     if (!ui.owner || ui.busy) return;
     ui.confirmId = null;
-    errEl.textContent = ''; noticeEl.textContent = '';
     setBusy(true, 'Removing…');
+    if (errEl) { errEl.textContent = ''; noticeEl.textContent = ''; }
     mutate(function (cur) {
       return { data: { nextId: cur.nextId, quotes: cur.quotes.filter(function (e) { return e.t !== t; }) } };
     }, 'Remove entry').then(function (out) {
       state = normalize(out.data);
-      noticeEl.textContent = 'Entry removed.';
+      if (noticeEl) noticeEl.textContent = 'Entry removed.';
       renderAll();
     }).catch(function (err) {
-      errEl.textContent = explain(err);
+      if (errEl) errEl.textContent = explain(err);
     }).then(function () { setBusy(false); renderList(); });
   }
 
@@ -518,16 +681,29 @@
 
   function signOut() {
     store(TOKEN_KEY, null);
-    ui.token = ''; ui.owner = false; ui.showSignin = false; ui.confirmId = null;
+    ui.token = ''; ui.owner = false; ui.showSignin = false; ui.confirmId = null; ui.editT = null;
     signinEl.textContent = '';
-    buildAdmin(); renderFooter(); renderList();
+    buildAdmin(); renderFooter(); renderAll();
   }
 
   function renderAll() {
-    renderCrown(); renderControls(); renderList(); refreshAdminMeta();
+    renderCrown();
+    renderPage();
+    renderControls();
+    renderList();
+    refreshAdminMeta();
   }
 
+  function applyRoute(scroll) {
+    var r = parseHash();
+    ui.view = r.view; ui.srcKey = r.key; ui.idx = 0; ui.confirmId = null; ui.editT = null;
+    renderAll();
+    if (scroll) window.scrollTo(0, 0);
+  }
+  window.addEventListener('hashchange', function () { applyRoute(true); });
+
   /* ---------- start ---------- */
+  (function () { var r = parseHash(); ui.view = r.view; ui.srcKey = r.key; })();
   renderAll();
   renderFooter();
 
