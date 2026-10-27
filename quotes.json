@@ -1,5 +1,5 @@
 {
-  "nextId": 90,
+  "nextId": 91,
   "quotes": [
     {
       "n": 1,
@@ -534,6 +534,12 @@
       "q": "In China, the government not only affects the distribution of the economic pie, but also plays a far deeper role in the production process than we are used to in the West. It’s therefore impossible for us to talk about the Chinese economy without talking about the government.",
       "s": "How China Works - by Lan Xiaohuan",
       "t": "2026-10-27T07:41:48.159Z"
+    },
+    {
+      "n": 90,
+      "q": "🇨🇳 Govt - Internet Sector\n\nFrom the start of that year(2021), and even as early as 2020, things had started to change. The Chinese government was playing an ever more active role in the internet sector and new regulations were coming thick and fast.",
+      "s": "How China Works - by Lan Xiaohuan",
+      "t": "2026-10-27T07:55:49.892Z"
     }
   ]
 }
